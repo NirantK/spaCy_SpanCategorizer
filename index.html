@@ -5,27 +5,35 @@ image: images/SpaCy_logo.png
 ---
 
 <h2> Why Span Categozier? </h2>
-- More control over final predictions
-- Can control recall via Suggester
-- Can control inference speed
 
-What are the differences between NER and Categozier?
-- Both can be used together
-- NER is a more strict model and can be used to extract named entities
-- Categozier is a more flexible model and can be used to extract any spans including custom entities
+One line reason: More control over final predictions
+
+Some ways in which this works:
+- Can control recall via Suggester
+- Can control inference speed via the number of suggestions
+- Can use the same model/pipeline at different points of precision-recall curve depending on your latency and performance needs 
+
+
+<h2> What are the differences between NER and Categozier? </h2>
+
+- NER does not expose the confidence of each prediction, while Span Categozier does that
+    -  NER is a fast, but not always accurate way to do NER
+    -  Span Categozier is a slow, but accurate way to do NER
+- Span Categozier is functionally a lot more flexible than NER
+- Span Categozier also has more parameters that you can tune/control, while NER is more focused on a single task
+- Both can be used together e.g. NER can be used to suggest spans of interest
+- [Do a Speed Test] NER is faster/slower than Span Categozier, all else being equal [Insert Results here]
 
 How can I use this component?
-- Check blogpost
+- Training the Span Categozier component is similar to training the NER component, but requires you to decide how you suggest spans. 
+This also means you can use the same pipeline for NER and Span Categozier.
 
-What are main things I'll have to develop in order to use this component?
+- Check Post below for a detailed expansion.
+
+<h2> What are main things I'll have to develop in order to use this component? </h2>
+
 - Spans Suggester
 
-<!-- This site is built with [fastpages](https://github.com/fastai/fastpages), An easy to use blogging platform with extra features for Jupyter Notebooks. -->
-
-<!-- ![]({{site.baseurl}}/images/diagram.png "https://github.com/fastai/fastpages") -->
-
-<!-- [fastpages](https://github.com/fastai/fastpages) automates the process of creating blog posts via GitHub Actions, so you don't have to fuss with conversion scripts.  A full list of features can be found on [GitHub](https://github.com/fastai/fastpages).   -->
-
-<!-- You can edit the `index.html` file to change this content. -->
+That is it. That is the only piece of code which you've to write. You can also use some of pre-written suggesters to get started. 
 
 # Posts
