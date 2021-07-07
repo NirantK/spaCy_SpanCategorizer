@@ -1,1 +1,1 @@
-Sitemap: https://fastpages.fast.ai/sitemap.xml
+Sitemap: https://nirantk.com/spaCy_SpanCategorizer/sitemap.xml
