@@ -84,36 +84,49 @@ window.onload = wrap_img;
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
         <div class="home"><h2> Why Span Categozier? </h2>
+
+<p>One line reason: More control over final predictions</p>
+
+<p>Some ways in which this works:</p>
 <ul>
-  <li>More control over final predictions</li>
   <li>Can control recall via Suggester</li>
-  <li>Can control inference speed</li>
+  <li>Can control inference speed via the number of suggestions</li>
+  <li>Can use the same model/pipeline at different points of precision-recall curve depending on your latency and performance needs</li>
 </ul>
 
-<p>What are the differences between NER and Categozier?</p>
+<h2> What are the differences between NER and Categozier? </h2>
+
 <ul>
-  <li>Both can be used together</li>
-  <li>NER is a more strict model and can be used to extract named entities</li>
-  <li>Categozier is a more flexible model and can be used to extract any spans including custom entities</li>
+  <li>NER does not expose the confidence of each prediction, while Span Categozier does that
+    <ul>
+      <li>NER is a fast, but not always accurate way to do NER</li>
+      <li>Span Categozier is a slow, but accurate way to do NER</li>
+    </ul>
+  </li>
+  <li>Span Categozier is functionally a lot more flexible than NER</li>
+  <li>Span Categozier also has more parameters that you can tune/control, while NER is more focused on a single task</li>
+  <li>Both can be used together e.g. NER can be used to suggest spans of interest</li>
+  <li>[Do a Speed Test] NER is faster/slower than Span Categozier, all else being equal [Insert Results here]</li>
 </ul>
 
 <p>How can I use this component?</p>
 <ul>
-  <li>Check blogpost</li>
+  <li>
+    <p>Training the Span Categozier component is similar to training the NER component, but requires you to decide how you suggest spans. 
+This also means you can use the same pipeline for NER and Span Categozier.</p>
+  </li>
+  <li>
+    <p>Check Post below for a detailed expansion.</p>
+  </li>
 </ul>
 
-<p>What are main things I’ll have to develop in order to use this component?</p>
+<h2> What are main things I'll have to develop in order to use this component? </h2>
+
 <ul>
   <li>Spans Suggester</li>
 </ul>
 
-<!-- This site is built with [fastpages](https://github.com/fastai/fastpages), An easy to use blogging platform with extra features for Jupyter Notebooks. -->
-
-<!-- ![](/spaCy_SpanCategorizer/images/diagram.png "https://github.com/fastai/fastpages") -->
-
-<!-- [fastpages](https://github.com/fastai/fastpages) automates the process of creating blog posts via GitHub Actions, so you don't have to fuss with conversion scripts.  A full list of features can be found on [GitHub](https://github.com/fastai/fastpages).   -->
-
-<!-- You can edit the `index.html` file to change this content. -->
+<p>That is it. That is the only piece of code which you’ve to write. You can also use some of pre-written suggesters to get started.</p>
 
 <h1 id="posts">Posts</h1>
 
